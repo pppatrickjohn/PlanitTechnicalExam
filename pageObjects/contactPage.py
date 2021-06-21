@@ -21,26 +21,22 @@ class ContactPage:
     def __init__(self,driver):
         self.driver = driver
 
-    def setForeName(self,forename):
-        WebDriverWait(self.driver, self.delay).until(ec.presence_of_element_located((By.XPATH,self.textbox_forename_xpath)))
-        self.driver.find_element_by_xpath(self.textbox_forename_xpath).clear()
-        self.driver.find_element_by_xpath(self.textbox_forename_xpath).send_keys(forename)
-
-    def setSurname(self,surname):
-        self.driver.find_element_by_xpath(self.textbox_surname_xpath).clear()
-        self.driver.find_element_by_xpath(self.textbox_surname_xpath).send_keys(surname)
-
-    def setEmail(self,email):
-        self.driver.find_element_by_xpath(self.textbox_email_xpath).clear()
-        self.driver.find_element_by_xpath(self.textbox_email_xpath).send_keys(email)
-
-    def setTelephone(self,telephone):
-        self.driver.find_element_by_xpath(self.textbox_telephone_xpath).clear()
-        self.driver.find_element_by_xpath(self.textbox_telephone_xpath).send_keys(telephone)
-
-    def setMessage(self,message):
-        self.driver.find_element_by_xpath(self.textarea_message_xpath).clear()
-        self.driver.find_element_by_xpath(self.textarea_message_xpath).send_keys(message)
+    def fillContactfields(self, contactTestData):
+        conTestData = contactTestData.split(",")
+        if 'None' not in conTestData:
+            WebDriverWait(self.driver, self.delay).until(ec.presence_of_element_located((By.XPATH, self.textbox_forename_xpath)))
+            self.driver.find_element_by_xpath(self.textbox_forename_xpath).clear()
+            self.driver.find_element_by_xpath(self.textbox_forename_xpath).send_keys(conTestData[0])
+            self.driver.find_element_by_xpath(self.textbox_surname_xpath).clear()
+            self.driver.find_element_by_xpath(self.textbox_surname_xpath).send_keys(conTestData[1])
+            self.driver.find_element_by_xpath(self.textbox_email_xpath).clear()
+            self.driver.find_element_by_xpath(self.textbox_email_xpath).send_keys(conTestData[2])
+            self.driver.find_element_by_xpath(self.textbox_telephone_xpath).clear()
+            self.driver.find_element_by_xpath(self.textbox_telephone_xpath).send_keys(conTestData[3])
+            self.driver.find_element_by_xpath(self.textarea_message_xpath).clear()
+            self.driver.find_element_by_xpath(self.textarea_message_xpath).send_keys(conTestData[4])
+#        self.clickSubmit()
+        time.sleep(1)
 
     def contactFieldsErr(self):
         if len(self.driver.find_elements(By.XPATH, self.div_mainMsgValidation_xpath)) > 0:

@@ -10,17 +10,17 @@ class MainMenu:
     def __init__(self,driver):
         self.driver = driver
 
-    def goToHome(self,menu):
+    def goToHome(self):
         self.driver.find_element_by_xpath(self.link_Home_xpath).click()
 
-    def goToShop(self,menu):
+    def goToShop(self):
         self.driver.find_element_by_xpath(self.link_Shop_xpath).click()
 
-    def goToContact(self,menu):
+    def goToContact(self):
         self.driver.find_element_by_xpath(self.link_Contact_xpath).click()
 
-    def goToLogin(self,menu):
+    def goToLogin(self):
         self.driver.find_element_by_xpath(self.link_Login_xpath).click()
 
-    def goToCart(self,menu):
+    def goToCart(self):
         self.driver.find_element_by_xpath(self.link_Cart_xpath).click()

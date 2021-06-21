@@ -42,8 +42,10 @@ class CartPage:
 
         uiSubtotalVal = self.driver.find_element_by_xpath(self.label_cartSubTotal).text
         if str(sum(list_itemSubTotal)) == str(uiSubtotalVal.replace("Total: ","")):
+            time.sleep(1)
             list_itemVerificationStatus.append("True")
         else:
+            time.sleep(1)
             list_itemVerificationStatus.append("False")
 
         if "False" not in list_itemVerificationStatus:
