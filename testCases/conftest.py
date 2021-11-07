@@ -14,7 +14,7 @@ def setup():
 ########## Pytest HTML Report ##########
 #hook for Adding Environment info to HTML Report
 def pytest_configure(config):
-    config._metadata['Project Name'] = 'Plant Test Automation Role Exam'
+    config._metadata['Project Name'] = 'Planit Test Automation Role Exam'
     config._metadata['Module Name'] = 'Jupiter Toys Shop'
     config._metadata['Tester'] = 'Patrick John Bawalan'
 

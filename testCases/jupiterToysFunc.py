@@ -121,6 +121,7 @@ class Test_JupiterToys_Func:
                     self.logger.info(" *************** Cart Quantity is Mismatching with Test Data *************** ")
 
                 self.menu.goToCart()
+                time.sleep(1)
                 self.driver.save_screenshot(".\\Screenshots\\" + str(testCaseID) + "_goToCart.png")
                 self.cart = CartPage(self.driver)
                 cartItemsVerified = self.cart.verifyCartContent(addedToCartItems)
